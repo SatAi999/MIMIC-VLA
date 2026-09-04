@@ -1,0 +1,2771 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-03 10:54:48",
+    "seed": 42,
+    "runs_per_architecture": 50
+  },
+  "summary": [
+    {
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "trials": 50,
+      "success_count": "0/50",
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "safety_violations": 50,
+      "verification_accuracy": 0.0,
+      "path_efficiency": 1.0
+    },
+    {
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "trials": 50,
+      "success_count": "0/50",
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "safety_violations": 50,
+      "verification_accuracy": 0.0,
+      "path_efficiency": 1.0
+    },
+    {
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "trials": 50,
+      "success_count": "24/50",
+      "success_rate": 48.0,
+      "recovery_rate": 53.3,
+      "safety_violations": 26,
+      "verification_accuracy": 52.0,
+      "path_efficiency": 1.42
+    },
+    {
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "trials": 50,
+      "success_count": "50/50",
+      "success_rate": 100.0,
+      "recovery_rate": 100.0,
+      "safety_violations": 0,
+      "verification_accuracy": 84.0,
+      "path_efficiency": 0.71
+    },
+    {
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "trials": 50,
+      "success_count": "50/50",
+      "success_rate": 100.0,
+      "recovery_rate": 100.0,
+      "safety_violations": 0,
+      "verification_accuracy": 90.0,
+      "path_efficiency": 0.71
+    },
+    {
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "trials": 50,
+      "success_count": "50/50",
+      "success_rate": 100.0,
+      "recovery_rate": 100.0,
+      "safety_violations": 0,
+      "verification_accuracy": 100.0,
+      "path_efficiency": 0.74
+    }
+  ],
+  "raw_trials": [
+    {
+      "trial_id": 1,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 1,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 1,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 1,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 1,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 1,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 2,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 2,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 2,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 2,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 2,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 2,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 3,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 3,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 3,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 3,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 3,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 3,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 4,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 4,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 4,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 4,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 4,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 4,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 5,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 5,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 5,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 5,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 5,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 5,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 6,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 6,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 6,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 6,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 6,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 6,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 7,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 7,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 7,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 7,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 7,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 7,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 8,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 8,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 8,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 8,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 8,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 8,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 9,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 9,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 9,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 9,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 9,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 9,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 10,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 10,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 10,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 10,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 10,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 10,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 11,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 11,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 11,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 11,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 11,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 11,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 12,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 12,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 12,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 12,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 12,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 12,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 13,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 13,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 13,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 13,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 13,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 13,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 14,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 14,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 14,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 14,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 14,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 14,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 15,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 15,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 15,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 15,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 15,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 15,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 16,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 16,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 16,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 16,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 16,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 16,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 17,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 17,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 17,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 17,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 17,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 17,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 18,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 18,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 18,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 18,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 18,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 18,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 19,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 19,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 19,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 19,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 19,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 19,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 20,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 20,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 20,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 20,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 20,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 20,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 21,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 21,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 21,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 21,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 21,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 21,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 22,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 22,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 22,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 22,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 22,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 22,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 23,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 23,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 23,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 23,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 23,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 23,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 24,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 24,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 24,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 24,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 24,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 24,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 25,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 25,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 25,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 25,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 25,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 25,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 26,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 26,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 26,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 26,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 26,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 26,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 27,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 27,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 27,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 27,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 27,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 27,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 28,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 28,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 28,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 28,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 28,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 28,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 29,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 29,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 29,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 29,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 29,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 29,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 30,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 30,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 30,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 30,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 30,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 30,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 31,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 31,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 31,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 31,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 31,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 31,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 32,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 32,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 32,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 32,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 32,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 32,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 33,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 33,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 33,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 33,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 33,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 33,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 34,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 34,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 34,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 34,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 34,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 34,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 35,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 35,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 35,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 35,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 35,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 35,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 36,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 36,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 36,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 36,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 36,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 36,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 37,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 37,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 37,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 37,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 37,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 37,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 38,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 38,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 38,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 38,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 38,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 38,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 39,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 39,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 39,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 39,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 39,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 39,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 40,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 40,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 40,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 40,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 40,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 40,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 41,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 41,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 41,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 41,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 41,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 41,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 42,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 42,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 42,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 42,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 42,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 42,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 43,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 43,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 43,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 43,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 43,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 43,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 44,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 44,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 44,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": true,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 44,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 44,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 44,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 45,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 45,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 45,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 45,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 45,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 45,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 46,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 46,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 46,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 46,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 46,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 46,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 47,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 47,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 47,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": false,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 47,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 47,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 47,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 48,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 48,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 48,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 48,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 48,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 48,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 49,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 49,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 49,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 16.5
+    },
+    {
+      "trial_id": 49,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 49,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 49,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    },
+    {
+      "trial_id": 50,
+      "architecture": "Ablation 1: Rule-Based (Static Policy)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 50,
+      "architecture": "Ablation 2: Perception + Direct Action (VLM-Only)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 11.3
+    },
+    {
+      "trial_id": 50,
+      "architecture": "Ablation 3: VLM + Task Planner (No Safety Gate)",
+      "success": false,
+      "recovery": false,
+      "safety_violation": true,
+      "verification_passed": false,
+      "path_length": 0.0
+    },
+    {
+      "trial_id": 50,
+      "architecture": "Ablation 4: World Model + Planner (No Safety Gate)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 50,
+      "architecture": "Ablation 5: World Model + Planner + Safety Gate (No Verifier)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.8
+    },
+    {
+      "trial_id": 50,
+      "architecture": "MIMIC-VLA (Full Hierarchical Architecture)",
+      "success": true,
+      "recovery": true,
+      "safety_violation": false,
+      "verification_passed": true,
+      "path_length": 15.2
+    }
+  ]
+}

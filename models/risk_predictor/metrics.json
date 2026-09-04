@@ -1,0 +1,27 @@
+{
+  "model_type": "RandomForestClassifier",
+  "n_samples": 500,
+  "n_estimators": 50,
+  "test_accuracy": 0.92,
+  "precision": 0.9828,
+  "recall": 0.8906,
+  "f1_score": 0.9344,
+  "confusion_matrix": [
+    [
+      35,
+      1
+    ],
+    [
+      7,
+      57
+    ]
+  ],
+  "feature_names": [
+    "route_length",
+    "obstacle_density",
+    "min_obstacle_dist",
+    "hazard_dist",
+    "n_turns",
+    "corridor_width"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "algorithm": "PPO",
+  "library": "Stable-Baselines3",
+  "policy_architecture": "MlpPolicy",
+  "episodes": 1000,
+  "total_timesteps": 10000,
+  "seed": 42,
+  "save_path": "models\\rl_policy\\ppo_v1.zip",
+  "feature_dim": 16,
+  "action_dim": 6
+}
