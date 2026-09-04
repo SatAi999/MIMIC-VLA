@@ -400,7 +400,17 @@
                     <h2>🌐 DYNAMIC WORLD MODEL & 3D RELATIONAL SCENE GRAPH INSPECTOR</h2>
                     <span class="badge-tag cyan">PERSISTENT BELIEF STATE EXPLORER</span>
                 </div>
-                <div class="window-content-grid">
+                <div class="window-content-grid" style="grid-template-columns: 1fr;">
+                    <div class="card-panel">
+                        <div class="card-header"><div class="header-title">INTERACTIVE 2D SCENE GRAPH & SPATIAL RELATIONS CANVAS</div></div>
+                        <div class="card-body">
+                            <div class="canvas-wrapper" style="height: 280px;">
+                                <canvas id="worldGraphCanvas" width="750" height="260"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="window-content-grid" style="margin-top: 16px;">
                     <div class="card-panel">
                         <div class="card-header"><div class="header-title">3D ENTITY BELIEF STATES & POSITIONS</div></div>
                         <div class="card-body">
@@ -433,7 +443,17 @@
                     <h2>🎯 PPO RL POLICY & CONTINUAL EXPERIENCE ADAPTATION INSPECTOR</h2>
                     <span class="badge-tag violet">STABLE-BASELINES3 POLICY ENGINE</span>
                 </div>
-                <div class="window-content-grid">
+                <div class="window-content-grid" style="grid-template-columns: 1fr;">
+                    <div class="card-panel">
+                        <div class="card-header"><div class="header-title">REAL-TIME PPO RECOVERY ACTION DISTRIBUTION & CONFIDENCE CANVAS</div></div>
+                        <div class="card-body">
+                            <div class="canvas-wrapper" style="height: 240px;">
+                                <canvas id="rlActionCanvas" width="750" height="220"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="window-content-grid" style="margin-top: 16px;">
                     <div class="card-panel">
                         <div class="card-header"><div class="header-title">PPO NEURAL POLICY ARCHITECTURE</div></div>
                         <div class="card-body">
@@ -468,7 +488,17 @@
                     <h2>🛡️ SYSTEM AUDITS, RESILIENCE & VERIFICATION SUITE</h2>
                     <button class="btn btn-accent" onclick="runResilienceTests()">⚡ EXECUTE 10-SCENARIO RESILIENCE SUITE</button>
                 </div>
-                <div class="window-content-grid">
+                <div class="window-content-grid" style="grid-template-columns: 1fr;">
+                    <div class="card-panel">
+                        <div class="card-header"><div class="header-title">EMPIRICAL BENCHMARK COMPARATIVE METRICS CANVAS</div></div>
+                        <div class="card-body">
+                            <div class="canvas-wrapper" style="height: 240px;">
+                                <canvas id="benchmarkCanvas" width="750" height="220"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="window-content-grid" style="margin-top: 16px;">
                     <div class="card-panel">
                         <div class="card-header"><div class="header-title">10-SCENARIO ADVERSARIAL FAILURE SUITE</div></div>
                         <div class="card-body">
@@ -476,12 +506,8 @@
                                 <thead>
                                     <tr><th>SCENARIO ID</th><th>DESCRIPTION</th><th>EXPECTED RECOVERY</th><th>SAFETY VIOLATIONS</th><th>STATUS</th></tr>
                                 </thead>
-                                <tbody>
-                                    <tr><td>SCEN-01</td><td>Corridor B Physical Roadblock</td><td>Take Alternate Route (Corridor C)</td><td>0 Violations</td><td><span class="badge-tag safe">PASSED</span></td></tr>
-                                    <tr><td>SCEN-02</td><td>Active Fire Hazard Proximity</td><td>Reroute via Safe Buffer</td><td>0 Violations</td><td><span class="badge-tag safe">PASSED</span></td></tr>
-                                    <tr><td>SCEN-03</td><td>Sensor Noise & Low VLM Confidence</td><td>RL Safety Fallback to Planner</td><td>0 Violations</td><td><span class="badge-tag safe">PASSED</span></td></tr>
-                                    <tr><td>SCEN-04</td><td>Sudden Obstacle Injection</td><td>Dynamic Re-pathing</td><td>0 Violations</td><td><span class="badge-tag safe">PASSED</span></td></tr>
-                                    <tr><td>SCEN-05</td><td>No Safe Action Corner Case</td><td>Emergency Safe Halt</td><td>0 Violations</td><td><span class="badge-tag safe">PASSED</span></td></tr>
+                                <tbody id="resilienceTableBody">
+                                    <!-- Dynamic Rows -->
                                 </tbody>
                             </table>
                         </div>
