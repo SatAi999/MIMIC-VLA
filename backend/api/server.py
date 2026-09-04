@@ -327,96 +327,237 @@ def inject_obstacle():
         "replan": replan_res
     }
 
+def reseed_current_scenario():
+    if current_scenario == "autonomous_car":
+        seed_autonomous_car_world()
+    elif current_scenario == "smart_warehouse":
+        seed_warehouse_world()
+    else:
+        seed_disaster_world()
+
 @app.post("/api/simulation/reset")
 def reset_simulation():
-    seed_disaster_world()
+    reseed_current_scenario()
     task_planner.status = "IDLE"
-    return {"status": "RESET_COMPLETE"}
+    return {"status": "RESET_COMPLETE", "scenario": current_scenario}
 
 @app.post("/api/mission/run-hero-demo")
 async def run_hero_demo(background_tasks: BackgroundTasks):
-    seed_disaster_world()
+    reseed_current_scenario()
     
     async def hero_workflow():
-        log_event("MISSION", "RUNNING JUDGE DEMO: 'Find the injured person and deliver the medical kit.'")
-        await asyncio.sleep(0.8)
-        
-        log_event("PERCEPTION", "Scanning visual environment via Gemini 3.6 Flash VLM... Person [94%], Medical Kit [97%], Fire [99%]")
-        await asyncio.sleep(0.8)
-        
-        log_event("PREDICTION", "Predictive route analysis: Route A (UNSAFE - Risk 92%), Route B (SAFE - Risk 11%, Learned Risk 2%)")
-        log_event("RL_POLICY", "PPO RL Policy Recommendation: CONTINUE_CURRENT_ROUTE (Confidence 94%)")
-        log_event("SAFETY_GATE", "Safety Gate Decision: APPROVED Route B (Collision Prob 0%)")
-        log_event("PLANNING", "Selected ROUTE B for navigation")
-        await asyncio.sleep(0.8)
-        
-        # Step 1: Smoothly navigate from Source (-4.0, -4.0) to Medical Kit (-2.0, 3.0)
-        world_state.robot.status = "NAVIGATING"
-        waypoints_to_kit = [
-            [-4.0, -4.0], [-3.6, -2.6], [-3.2, -1.2], [-2.8, 0.2], [-2.4, 1.6], [-2.0, 3.0]
-        ]
-        for wp in waypoints_to_kit:
-            world_state.robot.position = [wp[0], wp[1], 0.0]
-            await asyncio.sleep(0.12)
+        if current_scenario == "autonomous_car":
+            log_event("MISSION", "RUNNING AUTONOMOUS MISSION: 'Navigate vehicle safely to Sector 4 Hub via Highway Lane 2'")
+            await asyncio.sleep(0.8)
+            log_event("PERCEPTION", "Scanning visual environment via Gemini 3.6 Flash VLM... Sector 4 Hub [99%], Charging Dock [96%], Oil Hazard [85%]")
+            await asyncio.sleep(0.8)
+            log_event("PREDICTION", "Predictive route analysis: Route A (UNSAFE - Risk 92%), Route B (SAFE - Risk 11%, Learned Risk 2%)")
+            log_event("RL_POLICY", "PPO RL Policy Recommendation: CONTINUE_CURRENT_ROUTE (Confidence 94%)")
+            log_event("SAFETY_GATE", "Safety Gate Decision: APPROVED Route B (Collision Prob 0%)")
+            log_event("PLANNING", "Selected ROUTE B for navigation")
+            await asyncio.sleep(0.8)
+            
+            world_state.robot.status = "NAVIGATING"
+            waypoints_to_dock = [
+                [-4.0, -4.0], [-3.6, -2.6], [-3.2, -1.2], [-2.8, 0.2], [-2.4, 1.6], [-2.0, 3.0]
+            ]
+            for wp in waypoints_to_dock:
+                world_state.robot.position = [wp[0], wp[1], 0.0]
+                await asyncio.sleep(0.12)
 
-        res1 = action_engine.execute_primitive("NAVIGATE", {"target_pos": [-2.0, 3.0]})
-        log_event("ACTION", res1["message"], res1["verification"])
-        await asyncio.sleep(0.6)
-        
-        # Step 2: Pick Medical Kit
-        world_state.robot.status = "PICKING"
-        res2 = action_engine.execute_primitive("PICK", {"target_id": "medical_kit_01"})
-        log_event("ACTION", res2["message"], res2["verification"])
-        await asyncio.sleep(0.6)
-        
-        # Step 3: Navigate towards Victim via Corridor B (-2.0, 3.0) -> (0.0, 4.0)
-        world_state.robot.status = "NAVIGATING"
-        log_event("ACTION", "Navigating towards victim via Corridor B...")
-        waypoints_corridor_b = [
-            [-1.5, 3.25], [-1.0, 3.5], [-0.5, 3.75], [0.0, 4.0]
-        ]
-        for wp in waypoints_corridor_b:
-            world_state.robot.position = [wp[0], wp[1], 0.0]
-            await asyncio.sleep(0.15)
-        
-        # Step 4: DYNAMIC OBSTACLE DETECTED IN CORRIDOR B
-        inject_obstacle()
-        await asyncio.sleep(1.0)
-        
-        # Step 5: Pivot & Re-navigate via Route C Detour (-4.0, 0.0) -> (0.0, -3.0) -> (4.0, 0.0) -> (4.0, 4.0)
-        log_event("ACTION", "PPO Policy executing TAKE_ALTERNATE_ROUTE via Corridor C...")
-        waypoints_route_c = [
-            [-1.0, 3.0], [-2.5, 1.5], [-4.0, 0.0],
-            [-3.0, -1.0], [-1.5, -2.2], [0.0, -3.0],
-            [1.5, -2.0], [3.0, -1.0], [4.0, 0.0],
-            [4.0, 1.5], [4.0, 3.0], [4.0, 4.0]
-        ]
-        for wp in waypoints_route_c:
-            world_state.robot.position = [wp[0], wp[1], 0.0]
-            await asyncio.sleep(0.15)
+            res1 = action_engine.execute_primitive("NAVIGATE", {"target_pos": [-2.0, 3.0]})
+            log_event("ACTION", res1["message"], res1["verification"])
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "CHARGING"
+            log_event("ACTION", "Vehicle connected to EV Fast Charger at Charging Dock (-2.0, 3.0)")
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "NAVIGATING"
+            log_event("ACTION", "Cruising towards Sector 4 Hub via Highway Lane 2...")
+            waypoints_lane_b = [
+                [-1.5, 3.25], [-1.0, 3.5], [-0.5, 3.75], [0.0, 4.0]
+            ]
+            for wp in waypoints_lane_b:
+                world_state.robot.position = [wp[0], wp[1], 0.0]
+                await asyncio.sleep(0.15)
+            
+            inject_obstacle()
+            await asyncio.sleep(1.0)
+            
+            log_event("ACTION", "PPO Policy executing TAKE_ALTERNATE_ROUTE via Highway Express Detour...")
+            waypoints_route_c = [
+                [-1.0, 3.0], [-2.5, 1.5], [-4.0, 0.0],
+                [-3.0, -1.0], [-1.5, -2.2], [0.0, -3.0],
+                [1.5, -2.0], [3.0, -1.0], [4.0, 0.0],
+                [4.0, 1.5], [4.0, 3.0], [4.0, 4.0]
+            ]
+            for wp in waypoints_route_c:
+                world_state.robot.position = [wp[0], wp[1], 0.0]
+                await asyncio.sleep(0.15)
 
-        res3 = action_engine.execute_primitive("NAVIGATE", {"target_pos": [4.0, 4.0]})
-        log_event("ACTION", res3["message"], res3["verification"])
-        await asyncio.sleep(0.6)
-        
-        # Step 6: Deliver Medical Kit to Victim
-        world_state.robot.status = "DELIVERING"
-        res4 = action_engine.execute_primitive("DELIVER", {"item_id": "medical_kit_01", "target_id": "victim_01"})
-        log_event("ACTION", res4["message"], res4["verification"])
-        await asyncio.sleep(0.6)
-        
-        world_state.robot.status = "COMPLETED"
-        log_event("VERIFICATION", "✓ POST-ACTION VERIFICATION PASSED: Medical kit delivered to victim safely")
-        log_event("MISSION", "✓ HERO MISSION COMPLETED: Objective achieved despite dynamic environment change")
-        
-        episodic_memory.record_mission(
-            mission_id=f"mission_{int(time.time())}",
-            prompt="Find the injured person and deliver the medical kit.",
-            outcome="SUCCESS",
-            route_taken="Route B -> Dynamic Replanned to Route C",
-            replans=1,
-            details={"obstacle_avoided": "debris_corridor_B"}
-        )
+            res3 = action_engine.execute_primitive("NAVIGATE", {"target_pos": [4.0, 4.0]})
+            log_event("ACTION", res3["message"], res3["verification"])
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "ARRIVED"
+            log_event("ACTION", "Vehicle successfully docked at Sector 4 Hub (4.0, 4.0)")
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "COMPLETED"
+            log_event("VERIFICATION", "✓ POST-ACTION VERIFICATION PASSED: Autonomous vehicle reached Sector 4 Hub safely")
+            log_event("MISSION", "✓ MISSION COMPLETED: Sector 4 destination reached despite highway roadblock")
+            
+            episodic_memory.record_mission(
+                mission_id=f"mission_{int(time.time())}",
+                prompt="Navigate autonomous vehicle safely to Sector 4 Hub via Highway Lane 2",
+                outcome="SUCCESS",
+                route_taken="Highway Lane 2 -> Replanned to Express Detour",
+                replans=1,
+                details={"obstacle_avoided": "debris_highway_lane_2"}
+            )
+        elif current_scenario == "smart_warehouse":
+            log_event("MISSION", "RUNNING WAREHOUSE MISSION: 'Fetch priority dispatch cargo #409 and transfer to Loading Bay 2'")
+            await asyncio.sleep(0.8)
+            log_event("PERCEPTION", "Scanning visual environment via Gemini 3.6 Flash VLM... Loading Bay 2 [98%], Cargo #409 [95%], Forklift Zone [70%]")
+            await asyncio.sleep(0.8)
+            log_event("PREDICTION", "Predictive route analysis: Route A (UNSAFE - Risk 92%), Route B (SAFE - Risk 11%, Learned Risk 2%)")
+            log_event("RL_POLICY", "PPO RL Policy Recommendation: CONTINUE_CURRENT_ROUTE (Confidence 94%)")
+            log_event("SAFETY_GATE", "Safety Gate Decision: APPROVED Route B (Collision Prob 0%)")
+            log_event("PLANNING", "Selected ROUTE B for warehouse aisle navigation")
+            await asyncio.sleep(0.8)
+            
+            world_state.robot.status = "NAVIGATING"
+            waypoints_to_cargo = [
+                [-4.0, -4.0], [-3.6, -2.6], [-3.2, -1.2], [-2.8, 0.2], [-2.4, 1.6], [-2.0, 3.0]
+            ]
+            for wp in waypoints_to_cargo:
+                world_state.robot.position = [wp[0], wp[1], 0.0]
+                await asyncio.sleep(0.12)
+
+            res1 = action_engine.execute_primitive("NAVIGATE", {"target_pos": [-2.0, 3.0]})
+            log_event("ACTION", res1["message"], res1["verification"])
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "LIFTING"
+            log_event("ACTION", "AMR fork mechanism engaged: Lifted Cargo Pallet #409")
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "NAVIGATING"
+            log_event("ACTION", "Transporting cargo towards Loading Bay 2 via Aisle B...")
+            waypoints_aisle_b = [
+                [-1.5, 3.25], [-1.0, 3.5], [-0.5, 3.75], [0.0, 4.0]
+            ]
+            for wp in waypoints_aisle_b:
+                world_state.robot.position = [wp[0], wp[1], 0.0]
+                await asyncio.sleep(0.15)
+            
+            inject_obstacle()
+            await asyncio.sleep(1.0)
+            
+            log_event("ACTION", "PPO Policy executing TAKE_ALTERNATE_ROUTE via Aisle C Detour...")
+            waypoints_route_c = [
+                [-1.0, 3.0], [-2.5, 1.5], [-4.0, 0.0],
+                [-3.0, -1.0], [-1.5, -2.2], [0.0, -3.0],
+                [1.5, -2.0], [3.0, -1.0], [4.0, 0.0],
+                [4.0, 1.5], [4.0, 3.0], [4.0, 4.0]
+            ]
+            for wp in waypoints_route_c:
+                world_state.robot.position = [wp[0], wp[1], 0.0]
+                await asyncio.sleep(0.15)
+
+            res3 = action_engine.execute_primitive("NAVIGATE", {"target_pos": [4.0, 4.0]})
+            log_event("ACTION", res3["message"], res3["verification"])
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "UNLOADING"
+            log_event("ACTION", "Transferred Cargo Pallet #409 to Loading Bay 2 (4.0, 4.0)")
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "COMPLETED"
+            log_event("VERIFICATION", "✓ POST-ACTION VERIFICATION PASSED: Cargo pallet transferred safely")
+            log_event("MISSION", "✓ MISSION COMPLETED: Priority cargo transferred despite aisle blockage")
+            
+            episodic_memory.record_mission(
+                mission_id=f"mission_{int(time.time())}",
+                prompt="Fetch priority dispatch cargo #409 and transfer to Loading Bay 2",
+                outcome="SUCCESS",
+                route_taken="Aisle B -> Replanned to Aisle C Detour",
+                replans=1,
+                details={"obstacle_avoided": "debris_aisle_B"}
+            )
+        else:
+            log_event("MISSION", "RUNNING RESCUE MISSION: 'Find the injured person and deliver the medical kit.'")
+            await asyncio.sleep(0.8)
+            log_event("PERCEPTION", "Scanning visual environment via Gemini 3.6 Flash VLM... Person [94%], Medical Kit [97%], Fire [99%]")
+            await asyncio.sleep(0.8)
+            log_event("PREDICTION", "Predictive route analysis: Route A (UNSAFE - Risk 92%), Route B (SAFE - Risk 11%, Learned Risk 2%)")
+            log_event("RL_POLICY", "PPO RL Policy Recommendation: CONTINUE_CURRENT_ROUTE (Confidence 94%)")
+            log_event("SAFETY_GATE", "Safety Gate Decision: APPROVED Route B (Collision Prob 0%)")
+            log_event("PLANNING", "Selected ROUTE B for navigation")
+            await asyncio.sleep(0.8)
+            
+            world_state.robot.status = "NAVIGATING"
+            waypoints_to_kit = [
+                [-4.0, -4.0], [-3.6, -2.6], [-3.2, -1.2], [-2.8, 0.2], [-2.4, 1.6], [-2.0, 3.0]
+            ]
+            for wp in waypoints_to_kit:
+                world_state.robot.position = [wp[0], wp[1], 0.0]
+                await asyncio.sleep(0.12)
+
+            res1 = action_engine.execute_primitive("NAVIGATE", {"target_pos": [-2.0, 3.0]})
+            log_event("ACTION", res1["message"], res1["verification"])
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "PICKING"
+            res2 = action_engine.execute_primitive("PICK", {"target_id": "medical_kit_01"})
+            log_event("ACTION", res2["message"], res2["verification"])
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "NAVIGATING"
+            log_event("ACTION", "Navigating towards victim via Corridor B...")
+            waypoints_corridor_b = [
+                [-1.5, 3.25], [-1.0, 3.5], [-0.5, 3.75], [0.0, 4.0]
+            ]
+            for wp in waypoints_corridor_b:
+                world_state.robot.position = [wp[0], wp[1], 0.0]
+                await asyncio.sleep(0.15)
+            
+            inject_obstacle()
+            await asyncio.sleep(1.0)
+            
+            log_event("ACTION", "PPO Policy executing TAKE_ALTERNATE_ROUTE via Corridor C...")
+            waypoints_route_c = [
+                [-1.0, 3.0], [-2.5, 1.5], [-4.0, 0.0],
+                [-3.0, -1.0], [-1.5, -2.2], [0.0, -3.0],
+                [1.5, -2.0], [3.0, -1.0], [4.0, 0.0],
+                [4.0, 1.5], [4.0, 3.0], [4.0, 4.0]
+            ]
+            for wp in waypoints_route_c:
+                world_state.robot.position = [wp[0], wp[1], 0.0]
+                await asyncio.sleep(0.15)
+
+            res3 = action_engine.execute_primitive("NAVIGATE", {"target_pos": [4.0, 4.0]})
+            log_event("ACTION", res3["message"], res3["verification"])
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "DELIVERING"
+            res4 = action_engine.execute_primitive("DELIVER", {"item_id": "medical_kit_01", "target_id": "victim_01"})
+            log_event("ACTION", res4["message"], res4["verification"])
+            await asyncio.sleep(0.6)
+            
+            world_state.robot.status = "COMPLETED"
+            log_event("VERIFICATION", "✓ POST-ACTION VERIFICATION PASSED: Medical kit delivered to victim safely")
+            log_event("MISSION", "✓ MISSION COMPLETED: Objective achieved despite dynamic environment change")
+            
+            episodic_memory.record_mission(
+                mission_id=f"mission_{int(time.time())}",
+                prompt="Find the injured person and deliver the medical kit.",
+                outcome="SUCCESS",
+                route_taken="Route B -> Dynamic Replanned to Route C",
+                replans=1,
+                details={"obstacle_avoided": "debris_corridor_B"}
+            )
 
     background_tasks.add_task(hero_workflow)
     return {"status": "HERO_DEMO_LAUNCHED"}

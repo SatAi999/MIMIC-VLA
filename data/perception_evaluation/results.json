@@ -1,9 +1,9 @@
 {
-  "ground_truth_count": 8,
+  "ground_truth_count": 7,
   "predictions_count": 0,
   "true_positives": 0,
   "false_positives": 0,
-  "missed_objects": 8,
+  "missed_objects": 7,
   "precision_pct": 100.0,
   "recall_pct": 0.0,
   "mean_localization_error_px": 0.0
