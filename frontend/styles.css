@@ -816,3 +816,55 @@ body {
 .text-emerald { color: var(--emerald); }
 .text-rose { color: var(--rose); }
 
+/* RISK MODEL BOX */
+.risk-model-box {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: rgba(168, 85, 247, 0.05);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 10px;
+}
+
+.risk-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.risk-title {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--violet);
+    letter-spacing: 0.05em;
+}
+
+.risk-metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.risk-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 6px 4px;
+    border-radius: 6px;
+    border: 1px solid var(--border-glass);
+}
+
+.risk-stat .lbl {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.risk-stat .val {
+    font-size: 0.8rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+}
+
+
