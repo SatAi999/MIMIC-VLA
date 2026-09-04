@@ -155,6 +155,41 @@ function updatePerceptionMetrics(p) {
     renderCameraCanvas(p);
 }
 
+function updateTimelineProgress(progPct) {
+    const steps = [
+        { id: "stepSee", label: "SEE", text: "✓ VLM Grounded" },
+        { id: "stepUnderstand", label: "UNDERSTAND", text: "✓ Intent Parsed" },
+        { id: "stepWorldModel", label: "WORLD MODEL", text: "✓ Scene Graph" },
+        { id: "stepPredict", label: "PREDICT", text: "✓ Risk Evaluated" },
+        { id: "stepPlan", label: "PLAN", text: "✓ Route Selected" },
+        { id: "stepLearn", label: "LEARN", text: "✓ PPO Adapted" },
+        { id: "stepSafety", label: "SAFETY", text: "✓ Gate Cleared" },
+        { id: "stepAct", label: "ACT", text: "✓ Motion Primitive" },
+        { id: "stepVerify", label: "VERIFY", text: "✓ Physical Check" },
+        { id: "stepRemember", label: "REMEMBER", text: "✓ Memory Logged" }
+    ];
+
+    // Determine active step index based on progress (0 - 100%)
+    const activeIdx = Math.min(9, Math.floor((progPct / 100) * 10));
+
+    steps.forEach((s, idx) => {
+        const el = document.getElementById(s.id);
+        if (!el) return;
+        const statusEl = el.querySelector(".step-status");
+        
+        if (idx <= activeIdx || progPct >= 95.0) {
+            el.className = "timeline-step completed";
+            if (statusEl) statusEl.textContent = s.text;
+        } else if (idx === activeIdx + 1) {
+            el.className = "timeline-step active";
+            if (statusEl) statusEl.textContent = `Evaluating ${s.label}...`;
+        } else {
+            el.className = "timeline-step completed";
+            if (statusEl) statusEl.textContent = s.text;
+        }
+    });
+}
+
 // 60FPS SMOOTH ROBOT LERP & CANVAS ANIMATION LOOP
 function startCanvasAnimationLoop() {
     function animate() {
@@ -184,6 +219,7 @@ function startCanvasAnimationLoop() {
         const hudProg = document.getElementById("hudProgress");
         if (hudProg) hudProg.textContent = `${progPct.toFixed(1)}%`;
 
+        updateTimelineProgress(progPct);
         renderSimulationCanvas();
         requestAnimationFrame(animate);
     }
