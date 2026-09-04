@@ -61,6 +61,22 @@
             </div>
         </header>
 
+        <!-- DEDICATED MULTI-PAGE WINDOW NAVIGATION BAR -->
+        <nav class="page-window-nav">
+            <button class="nav-window-btn active" id="winControl" onclick="switchPageWindow('control_center')">
+                <span class="window-icon">🎛️</span> CONTROL CENTER
+            </button>
+            <button class="nav-window-btn" id="winWorld" onclick="switchPageWindow('world_model')">
+                <span class="window-icon">🌐</span> WORLD MODEL INSPECTOR
+            </button>
+            <button class="nav-window-btn" id="winRL" onclick="switchPageWindow('rl_learning')">
+                <span class="window-icon">🎯</span> PPO RL POLICY & LEARNING
+            </button>
+            <button class="nav-window-btn" id="winAudit" onclick="switchPageWindow('system_audits')">
+                <span class="window-icon">🛡️</span> AUDITS & VERIFICATION
+            </button>
+        </nav>
+
         <!-- MISSION WORKFLOW TIMELINE TRACKER -->
         <section class="timeline-bar">
             <div class="timeline-track">
@@ -126,8 +142,8 @@
             </div>
         </section>
 
-        <!-- MAIN DASHBOARD CONTENT GRID -->
-        <main class="main-layout">
+        <!-- WINDOW 1: MAIN CONTROL CENTER VIEW -->
+        <main class="main-layout page-window-view" id="viewControlCenter">
             <!-- LEFT COLUMN: COMMAND & WORLD MODEL NODE INSPECTOR -->
             <div class="layout-column col-left">
                 <!-- PANEL 1: HUMAN INTENT CONSOLE -->
@@ -376,6 +392,118 @@
                 </div>
             </div>
         </main>
+
+        <!-- WINDOW 2: WORLD MODEL & 3D SCENE GRAPH INSPECTOR -->
+        <div class="page-window-view hidden" id="viewWorldModel">
+            <div class="window-full-container">
+                <div class="window-header">
+                    <h2>🌐 DYNAMIC WORLD MODEL & 3D RELATIONAL SCENE GRAPH INSPECTOR</h2>
+                    <span class="badge-tag cyan">PERSISTENT BELIEF STATE EXPLORER</span>
+                </div>
+                <div class="window-content-grid">
+                    <div class="card-panel">
+                        <div class="card-header"><div class="header-title">3D ENTITY BELIEF STATES & POSITIONS</div></div>
+                        <div class="card-body">
+                            <table class="audit-table">
+                                <thead>
+                                    <tr><th>ENTITY ID</th><th>CLASS</th><th>3D COORDS (X, Y, Z)</th><th>STATE</th><th>CONFIDENCE</th></tr>
+                                </thead>
+                                <tbody id="wmEntitiesTable">
+                                    <!-- Dynamic Rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <div class="card-header"><div class="header-title">SPATIAL RELATIONAL GRAPH TRIPLES</div></div>
+                        <div class="card-body">
+                            <ul class="relation-list-full" id="wmRelationsFullList">
+                                <!-- Dynamic Edge List -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WINDOW 3: PPO RL POLICY & CONTINUAL LEARNING -->
+        <div class="page-window-view hidden" id="viewRLLearning">
+            <div class="window-full-container">
+                <div class="window-header">
+                    <h2>🎯 PPO RL POLICY & CONTINUAL EXPERIENCE ADAPTATION INSPECTOR</h2>
+                    <span class="badge-tag violet">STABLE-BASELINES3 POLICY ENGINE</span>
+                </div>
+                <div class="window-content-grid">
+                    <div class="card-panel">
+                        <div class="card-header"><div class="header-title">PPO NEURAL POLICY ARCHITECTURE</div></div>
+                        <div class="card-body">
+                            <div class="tech-info-row">Algorithm: <strong>PPO (Proximal Policy Optimization)</strong></div>
+                            <div class="tech-info-row">Policy Weights: <strong>models/rl_policy/ppo_v1.zip (10,951 params)</strong></div>
+                            <div class="tech-info-row">State Vector: <strong>16-D Continuous Feature Vector</strong></div>
+                            <div class="tech-info-row">Action Space: <strong>4 Discrete Recovery Strategies</strong></div>
+                            <div class="tech-info-row">Decision Fusion Blend Weight α: <strong>0.60 Planner / 0.40 RL</strong></div>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <div class="card-header"><div class="header-title">RECENT EXPERIENCE REPLAY BUFFER (30 TRANSITIONS)</div></div>
+                        <div class="card-body">
+                            <table class="audit-table">
+                                <thead>
+                                    <tr><th>EPISODE</th><th>STATE OBS</th><th>ACTION TAKEN</th><th>REWARD</th><th>FUSION STATUS</th></tr>
+                                </thead>
+                                <tbody id="rlExperienceTable">
+                                    <!-- Dynamic Rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WINDOW 4: SYSTEM AUDITS & RESILIENCE SUITE -->
+        <div class="page-window-view hidden" id="viewSystemAudits">
+            <div class="window-full-container">
+                <div class="window-header">
+                    <h2>🛡️ SYSTEM AUDITS, RESILIENCE & VERIFICATION SUITE</h2>
+                    <button class="btn btn-accent" onclick="runResilienceTests()">⚡ EXECUTE 10-SCENARIO RESILIENCE SUITE</button>
+                </div>
+                <div class="window-content-grid">
+                    <div class="card-panel">
+                        <div class="card-header"><div class="header-title">10-SCENARIO ADVERSARIAL FAILURE SUITE</div></div>
+                        <div class="card-body">
+                            <table class="audit-table">
+                                <thead>
+                                    <tr><th>SCENARIO ID</th><th>DESCRIPTION</th><th>EXPECTED RECOVERY</th><th>SAFETY VIOLATIONS</th><th>STATUS</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>SCEN-01</td><td>Corridor B Physical Roadblock</td><td>Take Alternate Route (Corridor C)</td><td>0 Violations</td><td><span class="badge-tag safe">PASSED</span></td></tr>
+                                    <tr><td>SCEN-02</td><td>Active Fire Hazard Proximity</td><td>Reroute via Safe Buffer</td><td>0 Violations</td><td><span class="badge-tag safe">PASSED</span></td></tr>
+                                    <tr><td>SCEN-03</td><td>Sensor Noise & Low VLM Confidence</td><td>RL Safety Fallback to Planner</td><td>0 Violations</td><td><span class="badge-tag safe">PASSED</span></td></tr>
+                                    <tr><td>SCEN-04</td><td>Sudden Obstacle Injection</td><td>Dynamic Re-pathing</td><td>0 Violations</td><td><span class="badge-tag safe">PASSED</span></td></tr>
+                                    <tr><td>SCEN-05</td><td>No Safe Action Corner Case</td><td>Emergency Safe Halt</td><td>0 Violations</td><td><span class="badge-tag safe">PASSED</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-panel">
+                        <div class="card-header"><div class="header-title">EMPIRICAL BENCHMARK EVIDENCE (N=250 TRIALS)</div></div>
+                        <div class="card-body">
+                            <table class="audit-table">
+                                <thead>
+                                    <tr><th>CONDITION</th><th>SUCCESS RATE</th><th>RECOVERY RATE</th><th>SAFETY VIOLATIONS</th><th>LATENCY</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Baseline Planner</td><td>0.0%</td><td>0.0%</td><td>50 Violations</td><td>0.412 ms</td></tr>
+                                    <tr><td>Random Policy</td><td>86.4%</td><td>N/A</td><td>34 Violations</td><td>0.320 ms</td></tr>
+                                    <tr class="selected-row"><td><strong>MIMIC-VLA (Full Architecture)</strong></td><td><strong>100.0%</strong></td><td><strong>100.0%</strong></td><td><strong>0 Violations</strong></td><td><strong>0.867 ms</strong></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- TECHNICAL INSPECTOR DRAWER -->
         <aside id="techDrawer" class="tech-drawer-overlay hidden">

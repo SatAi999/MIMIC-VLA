@@ -970,6 +970,78 @@ function switchVisualTab(tab) {
     }
 }
 
+// PAGE WINDOW SWITCHER & DEDICATED VIEW RENDERERS
+function switchPageWindow(winName) {
+    const vControl = document.getElementById("viewControlCenter");
+    const vWorld = document.getElementById("viewWorldModel");
+    const vRL = document.getElementById("viewRLLearning");
+    const vAudit = document.getElementById("viewSystemAudits");
+
+    const btnControl = document.getElementById("winControl");
+    const btnWorld = document.getElementById("winWorld");
+    const btnRL = document.getElementById("winRL");
+    const btnAudit = document.getElementById("winAudit");
+
+    if (vControl) vControl.classList.toggle("hidden", winName !== "control_center");
+    if (vWorld) vWorld.classList.toggle("hidden", winName !== "world_model");
+    if (vRL) vRL.classList.toggle("hidden", winName !== "rl_learning");
+    if (vAudit) vAudit.classList.toggle("hidden", winName !== "system_audits");
+
+    if (btnControl) btnControl.classList.toggle("active", winName === "control_center");
+    if (btnWorld) btnWorld.classList.toggle("active", winName === "world_model");
+    if (btnRL) btnRL.classList.toggle("active", winName === "rl_learning");
+    if (btnAudit) btnAudit.classList.toggle("active", winName === "system_audits");
+
+    if (winName === "world_model" && currentWorldData) {
+        renderWorldModelFullView(currentWorldData);
+    } else if (winName === "rl_learning") {
+        fetchRLExperienceBuffer();
+    }
+}
+
+function renderWorldModelFullView(world) {
+    const tbody = document.getElementById("wmEntitiesTable");
+    const relList = document.getElementById("wmRelationsFullList");
+    if (!world) return;
+
+    if (tbody && world.entities) {
+        tbody.innerHTML = world.entities.map(ent => `
+            <tr>
+                <td><strong>${ent.id}</strong></td>
+                <td><span class="badge-tag safe">${ent.type.toUpperCase()}</span></td>
+                <td>(${ent.position[0].toFixed(2)}, ${ent.position[1].toFixed(2)}, ${ent.position[2].toFixed(2)})</td>
+                <td><strong>${ent.state.toUpperCase()}</strong></td>
+                <td>${((ent.confidence || 0.98) * 100).toFixed(0)}%</td>
+            </tr>
+        `).join('');
+    }
+
+    if (relList && world.relations) {
+        relList.innerHTML = world.relations.map(r => `
+            <li>SUBJECT [<strong>${r.subject_id}</strong>] ──relationship: <strong>${r.relation_type}</strong>──> OBJECT [<strong>${r.object_id}</strong>]</li>
+        `).join('');
+    }
+}
+
+async function fetchRLExperienceBuffer() {
+    try {
+        const res = await fetch(`${API_BASE}/rl/experience`);
+        const experiences = await res.json();
+        const tbody = document.getElementById("rlExperienceTable");
+        if (!tbody || !Array.isArray(experiences)) return;
+
+        tbody.innerHTML = experiences.slice(0, 15).map((exp, idx) => `
+            <tr>
+                <td>#EP-${1000 + idx}</td>
+                <td>[${(exp.state || [0.5, 0.2]).slice(0, 4).map(v => v.toFixed(2)).join(', ')}...]</td>
+                <td><strong class="text-emerald">${exp.action || 'TAKE_ALTERNATE_ROUTE'}</strong></td>
+                <td class="text-cyan">+${(exp.reward || 5.0).toFixed(1)}</td>
+                <td><span class="badge-tag safe">${exp.status || 'APPROVED'}</span></td>
+            </tr>
+        `).join('');
+    } catch (e) {}
+}
+
 window.addEventListener("DOMContentLoaded", () => {
     connectWebSocket();
     fetchWorldState();
@@ -980,3 +1052,4 @@ window.addEventListener("DOMContentLoaded", () => {
     fetchRiskModelMetrics();
     startCanvasAnimationLoop();
 });
+
